@@ -1,30 +1,30 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 
-class SizeVariant(models.Model):
-    size = models.CharField(max_length=20)
-
-    def __str__(self):
-        return self.size
+CATEGORY = (
+    ('трансформатор', 'трансформатор'),
+    ('бетон: 2.5', 'бетон: 2.5'),
+    ('бетон: 1.5', 'бетон: 1.5'),
+)
 
 class Product(models.Model):
-    title = models.CharField(max_length=100)
+    created_by = models.OneToOneField(User, on_delete=models.CASCADE)
+    title = models.CharField(choices=CATEGORY, default='', max_length=250, verbose_name='Наименование')
     price = models.DecimalField(max_digits=9, decimal_places=2, verbose_name='Цена')
-    description = models.TextField()
+    description = models.TextField(verbose_name='Описания')
     created_at = models.DateTimeField(default=timezone.now)
-    size = models.ForeignKey(SizeVariant, on_delete=models.PROTECT, null=True, blank=True)
-
 
     class Meta:
         ordering = ('-created_at',)
 
     def __str__(self):
-        return self.product_name
+        return self.title
 
 
 class ProductImages(models.Model):
-    product = models.ForeignKey(Product, related_name='images', on_delete=models.PROTECT)
+    product = models.ForeignKey(Product, related_name='images', on_delete=models.CASCADE)
     image = models.ImageField(upload_to='product_images')
 
     def __str__(self):
