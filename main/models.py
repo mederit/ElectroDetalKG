@@ -9,8 +9,8 @@ class SizeVariant(models.Model):
         return self.size
 
 class Product(models.Model):
-    product_name = models.CharField(max_length=100)
-    price = models.CharField(max_length=20)
+    title = models.CharField(max_length=100)
+    price = models.DecimalField(max_digits=9, decimal_places=2, verbose_name='Цена')
     description = models.TextField()
     created_at = models.DateTimeField(default=timezone.now)
     size = models.ForeignKey(SizeVariant, on_delete=models.PROTECT, null=True, blank=True)
