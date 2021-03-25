@@ -14,7 +14,5 @@ class PostAdmin(admin.ModelAdmin):
     inlines = [ImageInlineAdmin,]
     # list_filter = ['created_by', 'created_at']
 
-
-# admin.site.register(Product)
-# admin.site.register(ProductImages)
-
+admin.site.register(Order)
+admin.site.register(CartProduct)
