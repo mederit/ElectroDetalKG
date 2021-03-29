@@ -2,6 +2,8 @@ asgiref==3.3.1
 Django==3.1.7
 django-ckeditor-5==0.0.12
 django-crispy==1.8.1
+django-phonenumber-field==5.0.0
+phonenumbers==8.12.20
 Pillow==8.1.2
 psycopg2-binary==2.8.6
 python-decouple==3.4
