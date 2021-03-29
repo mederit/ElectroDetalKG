@@ -6,14 +6,15 @@ from phonenumber_field.modelfields import PhoneNumberField
 
 CATEGORY = (
     ('трансформатор', 'трансформатор'),
-    ('бетон: 2.5', 'бетон: 2.5'),
-    ('бетон: 1.5', 'бетон: 1.5'),
+    ('столба: 11м', 'столба: 11м'),
+    ('столба: 9м', 'столба: 9м'),
 )
 
 class Product(models.Model):
-    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+
     title = models.CharField(choices=CATEGORY, default='', max_length=250, verbose_name='Наименование')
     price = models.DecimalField(max_digits=9, decimal_places=2, verbose_name='Цена')
+    image = models.ImageField(upload_to='product_images', verbose_name='Изображение')
     description = models.TextField(verbose_name='Описания')
     created_at = models.DateTimeField(default=timezone.now)
 
@@ -24,14 +25,15 @@ class Product(models.Model):
         return self.title
 
 
-class ProductImages(models.Model):
-    product = models.ForeignKey(Product, related_name='images', on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='product_images')
-
-    def __str__(self):
-        if self.image:
-            return self.image.url
-        return ''
+#
+# class ProductImages(models.Model):
+#     product = models.ForeignKey(Product, related_name='images', on_delete=models.CASCADE)
+#     image = models.ImageField(upload_to='product_images')
+#
+#     def __str__(self):
+#         if self.image:
+#             return self.image.url
+#         return ''
 
 
 class Order(models.Model):
@@ -54,5 +56,3 @@ class CartProduct(models.Model):
     
 
 
-
-    
