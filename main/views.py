@@ -4,12 +4,14 @@ from .models import *
 
 class ProductView(View):
 
-
     def get(self, request):
         products = Product.objects.all()
+        
         return render(request, 'base.html', locals())
 
-    # @property
-    # def get_pk(self, request):
-    #     products_pk = Product.objects.filter()
-    #     img =
+
+def modalproduct(request, pk):
+    context = {}
+    modal_product = get_object_or_404(Product, pk=pk)
+    context['modal_product'] = modal_product
+    return render(request, 'modal-product.html', context)
