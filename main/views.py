@@ -4,11 +4,10 @@ from .models import *
 
 class ProductView(View):
 
-
     def get(self, request):
         products = Product.objects.all()
+        
         return render(request, 'base.html', locals())
-
 
 
 def modalproduct(request, pk):
