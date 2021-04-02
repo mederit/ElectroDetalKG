@@ -3,5 +3,5 @@ from .views import *
 
 urlpatterns = [
     path('', ProductView.as_view(), name='main'),
-    path('<int:pk>/', modalproduct, name='modal_product'),
+    path('<int:pk>/', modalproduct, name='modal-product'),
 ]
