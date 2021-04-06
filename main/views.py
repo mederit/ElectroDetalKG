@@ -6,7 +6,7 @@ class ProductView(View):
 
     def get(self, request):
         products = Product.objects.all()
-        
+        images = Gallery.objects.all()
         return render(request, 'main.html', locals())
 
 
@@ -16,10 +16,3 @@ def modalproduct(request, pk):
     context['modal_product'] = modal_product
     return render(request, 'modal-product.html', context)
 
-
-class GalleryView(View):
-
-    def get(self, request):
-        images = Gallery.objects.all()
-
-        return render(request, 'gallery.html', locals())

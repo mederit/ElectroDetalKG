@@ -6,6 +6,8 @@
     (function ($) {
     "use strict"; // Start of use strict
 
+    $(".item").magnificPopup({type : 'image', gallery : {enabled : true}});
+
     // Smooth scrolling using jQuery easing
     $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
         if (
@@ -71,3 +73,7 @@ $('#productModal').on('show.bs.modal', function (event) {
     container.html(data);
   });
 });
+
+
+
+

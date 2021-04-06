@@ -92,6 +92,23 @@
                             <img src="{% static 'img/2021.jpg' %}" class="d-block w-100" alt="...">
 
                 </div>
+
+            </div>
+        </section>
+
+
+<!--        Gallery-->
+        <section class="page-section" id="gallery">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Галерея</h2>
+                    <div class="library">
+                        {% for img in images %}
+                        <a href="{{ img.image.url }}" class="item"><img src="{{ img.image.url }}" tabindex="0" border="3" /></a>
+
+                        {% endfor %}
+
+
                 </div>
             </div>
         </section>
@@ -107,6 +124,7 @@
 
             </div>
         </section>
+
 
 
 {% endblock %}
