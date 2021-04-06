@@ -1,0 +1,19 @@
+<!--        Gallery-->
+        <section class="page-section" id="gallery">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Галерея</h2>
+                    <div id="gall">
+                        {% for img in images %}
+                    <img src="{{ img.image.url }}" tabindex="0" border="3" width="500px", height="250px"/>
+
+                        {% endfor %}
+
+                    <div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+

@@ -16,5 +16,6 @@ from .models import *
 
 
 admin.site.register(Product)
+admin.site.register(Gallery)
 # admin.site.register(ProductImages)
 
