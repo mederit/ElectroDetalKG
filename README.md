@@ -1,1 +1,1 @@
-# ProjectPerson
+Electrodetal KG -  my first commercial project for the company "Electrodetal KG", that is engaged in the production of reinforced concrete poles for power lines.
