@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Masthead -->
+        <header class="masthead">
+            <div class="container">
+
+                    <div class="masthead-subheading"><a href="tel:+996706797335">0706797335</a></div>
+                    <div class="masthead-subheading"><a href="tel:+996708439578">0708439578</a></div>
+
+                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#portfolio">Перейти к продуктам</a>
+            </div>
+        </header>
+        <!-- Products-->
+        <section class="page-section bg-light" id="portfolio">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Наши товары</h2>
+                    <hr>
+                </div>
+                <div class="row">
+
+                    {% for product in products %}
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#productModal"  data-target="#productModal" data-url="{% url 'modal-product' product.pk %}">
+
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="{{  product.image.url }}" width="500px" alt="" />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading"><a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">{{ product.title }}</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+        </section>
+
+
+        <!-- Services-->
+        <section class="page-section" id="services">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Наши услуги</h2>
+                    <hr>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+
+                            <img src="{% static 'img/dostavka.jpeg' %}" alt="" width="150px">
+                        </span>
+                        <h4 class="my-3">Доставка</h4>
+                        <p class="text-muted"></p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+
+                            <img src="{% static 'img/rabochi.png' %}" alt="" width="130px">
+                        </span>
+                        <h4 class="my-3">Установка</h4>
+                        <p class="text-muted"></p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <img src="{% static 'img/konsultazia.png' %}" alt="" width="120px">
+                        </span>
+                        <h4 class="my-3">Консультация</h4>
+                        <p class="text-muted">На все ваши вопросы получите ответ от наших специалистов:</p>
+                        <div class="masthead-subheading"><a href="tel:+996708439578">Алексей, 0708439578</a></div>
+                        <div class="masthead-subheading"><a href="tel:+996706797335">Канат, 0706797335</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- About-->
+        <section class="page-section" id="about">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">О нашем заводе</h2>
+                </div>
+                <div class="text-about" style="text-align: center;">
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente assumenda soluta aspernatur rerum, est tempora repudiandae commodi quasi! Assumenda accusantium in, temporibus obcaecati iste possimus rerum numquam inventore? Odit, modi.</h3>
+
+                            <img src="{% static 'img/2021.jpg' %}" class="d-block w-100" alt="...">
+
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact-->
+        <section class="page-section" id="contact">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Наши контакты</h2
+                    <hr>
+                    <h5 class="section-heading text-uppercase">Телефоны: +9961234567;&emsp; Почта: test@gmail.com</h5>
+                </div>
+
+            </div>
+        </section>
+
+
+{% endblock %}
